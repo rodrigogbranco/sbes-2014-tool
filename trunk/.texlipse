@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Mon May 05 11:53:13 BOT 2014
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=artigo.tex
+outputFile=artigo.pdf
+langSpell=br
+markDer=true
+srcDir=
