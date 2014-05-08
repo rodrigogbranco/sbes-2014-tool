@@ -43,19 +43,26 @@
 
 Fornecer \textit{softwares} acessíveis continua sendo um desafio nos dias atuais, com diversas pesquisas na área \cite{lazar:04,brajnik:06,zeng:05}. Dentre as dificuldades pertinentes do problema, podemos destacar a identificação dos requisitos de acessibilidade e sua posterior propagação e rastreabilidade até a fase de construção do produto. Enquanto existem propostas para integrar usabilidade e acessibilidade nos processos de Engenharia de \textit{Software}, muitos desenvolvedores não sabem como implementar tais produtos acessíveis \cite{1630123,alves:11}.
 
-A utilização de ferramentas CASE nos processos de Engenharia de \textit{Software} é muito comum, em geral, aumentam a produtividade dos desenvolvedores, já que estas ferramentas automatizam algumas tarefas diminuindo o esforço e o tempo de construção da solução. Na área de acessibilidade, é possível encontrar diversas ferramentas especializadas, como \textit{frameworks}, simuladores, validadores, entre outras. Contudo, os desenvolvedores não estão satisfeitos com o suporte fornecido por estas ferramentas \cite{Trewin:2010:ACT:1805986.1806029}.
+A utilização de ferramentas CASE nos processos de Engenharia de \textit{Software} é muito comum, e em geral, aumentam a produtividade dos desenvolvedores, já que estas ferramentas automatizam algumas tarefas diminuindo o esforço e o tempo de construção da solução. Na área de acessibilidade, é possível encontrar diversas ferramentas especializadas, como \textit{frameworks}, simuladores, validadores, entre outras. Contudo, os desenvolvedores não estão satisfeitos com o suporte fornecido por estas ferramentas \cite{Trewin:2010:ACT:1805986.1806029}.
 
 Muitas das ferramentas descritas normalmente são utilizadas quando o produto final já está pronto. Por isso, seria interessante que os requisitos de rastreabilidade, assim que localizados, pudessem ser rastreados para identificar se estão sendo codificados corretamente. Há vários estudos relacionados a rastreabilidade de requisitos de forma genérica \cite{5970169,292398,5485417,6405269}, porém poucos relacionados aos requisitos de acessibilidade durante o processo de desenvolvimento de \textit{software} \cite{analuizadias:2010}.
 
-Este trabalho apresenta o \textit{AccTrace}
+Este trabalho apresenta o \textit{AccTrace}, uma ferramenta CASE desenvolvida como um \textit{plugin} do \textit{Eclipse} permite acompanhar a evolução dos requisitos de acessibilidade, inclusive em nível de código-fonte, entregando informações relevantes ao desenvolvedor para a construção do produto acessível. A ferramenta foi construída utilizando o MTA \cite{maia:10}, um processo de desenvolvimento de \textit{software} baseado na ISO/IEC 12207, incluindo tarefas de acessibilidade.
 
-\section{Características da Ferramenta}
+Usando esta nova abordagem, o relacionamento entre os requisitos de acessibilidade e os modelos UML, adicionados de informações importantes ao desenvolvedor são transformados em comentários no código-fonte, recuperados em tempo real e apresentados ao desenvolvedor.
 
-\section{Arquitetura da Ferramenta}
+Este trabalho está organizado da seguinte forma: Na Seção \ref{sec:caracteristicas} são discutidas as características da ferramenta, principais funcionalidades e potenciais usuários. Na Seção \ref{sec:arquitetura} são discutidos os principais conceitos da arquitetura da ferramenta, componentes de \textit{software} e interfaces. Na Seção \ref{sec:relacoes} são descritos ferramentas e trabalhos relacionados. Na Seção \ref{sec:provadeconceito} é apresentada uma Prova de Conceito com algumas telas da execução da ferramenta. Por fim, na Seção \ref{sec:conclusoes} são discutidas as conclusões e trabalhos futuros.
 
-\section{Prova de Conceito}
 
-\section{Conclusões}
+\section{Características da Ferramenta}\label{sec:caracteristicas}
+
+\section{Arquitetura da Ferramenta}\label{sec:arquitetura}
+
+\section{Ferramentas e Trabalhos Relacionados}\label{sec:relacoes}
+
+\section{Prova de Conceito}\label{sec:provadeconceito}
+
+\section{Conclusões e Trabalhos Futuros}\label{sec:conclusoes}
 
 
 
