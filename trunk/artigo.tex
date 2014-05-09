@@ -92,6 +92,27 @@ O Especialista em Acessibilidade cadastrará as informações relativas ao relacion
 
 \section{Arquitetura da Ferramenta}\label{sec:arquitetura}
 
+O \textit{AccTrace} trabalha em conjunto com as seguintes ferramentas:
+
+\begin{itemize}
+  \item \textit{Eclipse} como IDE
+  \item \textit{Requirement Designer} - \textit{Plugin} de Gerenciamento de Requisitos
+  \item \textit{UML Designer} - \textit{Plugin} de modelagem UML
+  \item \textit{UML to Java Generator} - \textit{Plugin} de geração de código
+\end{itemize}
+
+Os três \textit{plugins} descritos anteriormente são distribuídos pela empresa \textit{Obeo} e foram escolhidos para trabalharem em conjunto com o \textit{AccTrace} por serem intercompatíveis. Além disso, uma tecnologia essencial utilizada é uma Ontologia de Acessibilidade do Projeto \textit{Aegis} \cite{aegis:13}, que mapeia as diretrizes e técnicas de implementação de acessibilidade.
+
+A Figura \ref{fig:association} mostra o comportamento e o relacionamento das ferramentas, tecnologias e atores envolvidos no fluxo de trabalho do \textit{AccTrace}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.5\textwidth]{./images/desenvolvimento.png}
+\caption{Associação das ferramentas e atores no contexto do trabalho}
+\label{fig:association}
+\end{figure}
+
+
 \section{Ferramentas e Trabalhos Relacionados}\label{sec:relacoes}
 
 \section{Prova de Conceito}\label{sec:provadeconceito}
