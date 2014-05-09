@@ -53,10 +53,40 @@ Usando esta nova abordagem, o relacionamento entre os requisitos de acessibilida
 
 A ferramenta tem caráter experimental e acadêmico e é distribuida sob a licença \textit{Eclipse Public License V1.0} e pode ser baixada em \url{https://github.com/rodrigogbranco/acctrace}.
 
+\subsection{Organização do Trabalho}
+
 Este trabalho está organizado da seguinte forma: Na Seção \ref{sec:caracteristicas} são discutidas as características da ferramenta, principais funcionalidades e potenciais usuários. Na Seção \ref{sec:arquitetura} são discutidos os principais conceitos da arquitetura da ferramenta, componentes de \textit{software} e interfaces. Na Seção \ref{sec:relacoes} são descritos ferramentas e trabalhos relacionados. Na Seção \ref{sec:provadeconceito} é apresentada uma Prova de Conceito com algumas telas da execução da ferramenta. Por fim, na Seção \ref{sec:conclusoes} são discutidas as conclusões e trabalhos futuros.
 
-
 \section{Características da Ferramenta}\label{sec:caracteristicas}
+
+A principal funcionalidade da ferramenta \textit{AccTrace} é promover a rastreabilidade dos requisitos de acessibilidade, partindo da Engenharia de Requisitos até a fase de codificação do produto. Construída como uma ferramenta CASE que atua como um \textit{plugin} da IDE \textit{Eclipse}, esta ferramenta trabalha em conjunto com outros \textit{plugins} para atingir seu objetivo.
+
+\subsection{Teoria}
+
+O \textit{AccTrace} utilizou o Processo de Desenvolvimento de \textit{Software} MTA \cite{maia:10} para definir o fluxo de trabalho da ferramenta, principalmente os subprocessos 4 (Análise de Requisitos de \textit{Software}), 5 (Projeto de \textit{Software}) e 6 (Construção do \textit{Software}). A Figura \ref{fig:highlevel} apresenta o fluxo de trabalho e o esquema de rastreabilidade em alto nível e a inclusão dos requisitos de acessibilidade.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.5\textwidth]{./images/figuramagica.png}
+\caption{Detalhamento dos Subprocessos do MTA para prover a rastreabilidade dos requisitos de acessibilidade
+de acordo com a abordagem adotada neste trabalho}
+\label{fig:highlevel}
+\end{figure}
+
+A ferramenta \textit{AccTrace}, assim como o MTA, prevê que no Projeto exista um papel designado Especialista em Acessibilidade, e a pessoa que assume este papel tem a responsabilidade de identificar os requisitos de acessibilidade, e relacioná-los aos modelos e técnicas de implementação dos mesmos.
+
+\subsection{Funcionalidades}
+
+O \textit{AccTrace} permite que:
+
+\begin{itemize}
+  \item os relacionamentos entre os requisitos de acessibilidade, modelos UML e técnicas de implementação de acessibilidade sejam gerenciados;
+  \item a matriz de rastreabilidade dos relacionamentos descritos seja criada;
+  \item o código-fonte receba comentários personalizados indicando tais relacionamentos;
+  \item o desenvolvedor recupere informações sobre tais relacionamentos em tempo real.
+\end{itemize}
+
+\subsection{Potenciais Usuários}
 
 \section{Arquitetura da Ferramenta}\label{sec:arquitetura}
 
