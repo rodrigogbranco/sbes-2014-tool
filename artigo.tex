@@ -141,6 +141,18 @@ funcionamento da ferramenta.
 \label{fig:acctrace}
 \end{figure}
 
+Uma vez selecionado o modelo UML e o requisito, é possível efetuar a associação da
+técnica de implementação de acessibilidade, clicando com o botãoo direito do mouse em
+cima do modelo UML, conforme demonstrado na Figura \ref{fig:rightclick}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{./images/rightclick.png}
+\caption{Procedimento para efetuar a associação da técnica de implementação de
+acessibilidade}
+\label{fig:rightclick}
+\end{figure}
+
 
 \section{Ferramentas e Trabalhos Relacionados}\label{sec:relacoes}
 
@@ -159,13 +171,35 @@ que tratem especificamente da rastreabilidade dos requisitos de acessibilidade d
 encontrado como essas alternativas permitem, partindo do código fonte da solução, recuperar as informações de 
 rastreabilidade dos requisitos.
 
-\section{Prova de Conceito}\label{sec:provadeconceito}
-
 \section{Conclusões}\label{sec:conclusoes}
+
+Este estudo mostrou ser possível especificar, antes das fases de codificação
+e vinculadas aos modelos e requisitos de acessibilidade, as técnicas de implementação
+que deverão ser visualizadas pelos programadores. A utilização de uma ontologia pré-de
+finida do projeto \textit{Aegis} \cite{aegis:13} ajudou a alcançar tal objetivo, estendendo as técnicas
+de implementação anteriormente ditas para abordagens, diretrizes, critérios de sucesso,
+entre outros.
 
 \subsection{Limitações da Ferramenta}
 
+A ferramenta \textit{AccTrace} não recupera, a partir de códigos fontes arbitrários, as informações sobre a
+rastreabilidade dos requisitos, modelos UML e técnicas de implementação, já que em
+nível de código, a informação necessária para a recuperação dos dados é o
+comentário \textit{AccTrace} personalizado, que não estará presente em tais projetos.
+A ferramenta também exige o acompanhamento de um Especialista em Acessibilidade para que o lançamento das informações seja feito no momento correto,
+profissional este que pode não estar disponível na equipe de desenvolvimento do produto.
+
 \subsection{Trabalhos Futuros}
+
+É possível identificar várias atividades para trabalhos futuros:
+
+\begin{enumerate}
+  \item utilizar o \textit{AccTrace} em um projeto real como estudo de caso;
+  \item aumentar a usabilidade da ferramenta, melhorando as mensagens apresentadas e aproveitando o relacionamento da ontologia do projeto \textit{Aegis};
+  \item estender o escopo deste trabalho, incluíndo tarefas de testes e integração do \textit{software}
+e do sistema (Subtarefas 7, 8, 9 e 10 do MTA);
+  \item estender a matriz de rastreabilidade dos requisitos aqui construída, para incluir os casos de testes descritos no item anterior;
+\end{enumerate}
 
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
