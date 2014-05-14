@@ -121,14 +121,51 @@ Não existe uma interface formal entre as ferramentas. Os artefatos gerados em fo
 \label{fig:acctraceclassdiagram}
 \end{figure}
 
+A ferramenta possui três visões principais, de acordo com a Figura
+\ref{fig:acctrace}. No editor (\textit{AccTrace Editor})  é possível alterar
+os repositórios dos requisitos e gerar as associações entre os modelos
+UML, requisitos e técnicas de implementação. Na visão dos requisitos
+(\textit{Requirement Associations}) é possível visualizar quais requisitos
+associados ao modelo UML foram selecionados no editor. Na visão das técnicas já
+vinculadas (\textit{Accessibility Specifications View}) é possível visualizar as técnicas de implementação já associadas, de acordo com o
+modelo UML selecionado no editor e o requisito de acessibilidade
+selecionado na visão dos requisitos. Além disso, é possível remover as técnicas de
+implementação associadas. As três visões são importantes para o correto
+funcionamento da ferramenta.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{./images/acctrace.png}
+\caption{Visualização da ferramenta \textit{AccTrace} na tela principal do
+\textit{Eclipse}}
+\label{fig:acctrace}
+\end{figure}
+
 
 \section{Ferramentas e Trabalhos Relacionados}\label{sec:relacoes}
 
+Já existem iniciativas, principalmente corporativas, que permitem agregar os
+requisitos levantados aos artefatos do processo de desenvolvimento, por exemplo,
+construção de relatórios de rastreabilidade usando os
+programas \textit{IBM Rational Software Architect},
+\textit{IBM Rational RequisitePro} e BIRT
+para \textit{WebSphere} \cite{hovater:08}.
+
+O software \textit{Enterprise Architect} da empresa \textit{Sparx Systems}
+permite utilizar diagramas de requisitos,
+que são extensões dos diagramas tradicionais da UML, permitindo a
+rastreabilidade do modelo. Contudo, não foi encontrado na literatura trabalhos
+que tratem especificamente da rastreabilidade dos requisitos de acessibilidade dentro do processo de desenvolvimento de \textit{software}. Além disso, não foi 
+encontrado como essas alternativas permitem, partindo do código fonte da solução, recuperar as informações de 
+rastreabilidade dos requisitos.
+
 \section{Prova de Conceito}\label{sec:provadeconceito}
 
-\section{Conclusões e Trabalhos Futuros}\label{sec:conclusoes}
+\section{Conclusões}\label{sec:conclusoes}
 
+\subsection{Limitações da Ferramenta}
 
+\subsection{Trabalhos Futuros}
 
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
