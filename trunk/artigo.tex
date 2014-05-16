@@ -7,8 +7,6 @@
 %\usepackage[brazil]{babel}   
 \usepackage[latin1]{inputenc}  
 
-\renewcommand{\refname}{Referências}
-
 \usepackage{listings}
 \usepackage{color}
 
@@ -34,6 +32,10 @@
 
 \widowpenalty=300
 \clubpenalty=300
+
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabela}
+\renewcommand{\refname}{Referências}
 
      
 \sloppy
@@ -82,7 +84,7 @@ A ferramenta tem caráter experimental e acadêmico e é distribuida sob a licença 
 
 \subsection{Organização do Trabalho}
 
-Este trabalho está organizado da seguinte forma: Na Seção \ref{sec:caracteristicas} são discutidas as características da ferramenta, principais funcionalidades e potenciais usuários. Na Seção \ref{sec:arquitetura} são discutidos os principais conceitos da arquitetura da ferramenta, componentes de \textit{software} e interfaces. Na Seção \ref{sec:relacoes} são descritos ferramentas e trabalhos relacionados. Na Seção \ref{sec:provadeconceito} é apresentada uma Prova de Conceito com algumas telas da execução da ferramenta. Por fim, na Seção \ref{sec:conclusoes} são discutidas as conclusões e trabalhos futuros.
+Este trabalho está organizado da seguinte forma: Na Seção \ref{sec:caracteristicas} são discutidas as características da ferramenta, principais funcionalidades e potenciais usuários. Na Seção \ref{sec:arquitetura} são discutidos os principais conceitos da arquitetura da ferramenta, componentes de \textit{software} e interfaces. Na Seção \ref{sec:relacoes} são descritos ferramentas e trabalhos relacionados. Por fim, na Seção \ref{sec:conclusoes} são discutidas as conclusões e trabalhos futuros.
 
 \section{Características da Ferramenta}\label{sec:caracteristicas}
 
@@ -237,11 +239,7 @@ rastreabilidade dos requisitos.
 \section{Conclusões}\label{sec:conclusoes}
 
 Este estudo mostrou ser possível especificar, antes das fases de codificação
-e vinculadas aos modelos e requisitos de acessibilidade, as técnicas de implementação
-que deverão ser visualizadas pelos programadores. A utilização de uma ontologia pré-de
-finida do projeto \textit{Aegis} \cite{aegis:13} ajudou a alcançar tal objetivo, estendendo as técnicas
-de implementação anteriormente ditas para abordagens, diretrizes, critérios de sucesso,
-entre outros.
+e vinculadas aos modelos e requisitos de acessibilidade, as técnicas de implementação que deverão ser visualizadas pelos programadores. A utilização de uma ontologia pré-definida do projeto \textit{Aegis} \cite{aegis:13} ajudou a alcançar tal objetivo, estendendo as técnicas de implementação anteriormente ditas para abordagens, diretrizes, critérios de sucesso, entre outros.
 
 \subsection{Limitações da Ferramenta}
 

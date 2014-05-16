@@ -117,7 +117,7 @@ FUNCTION {output.check}
 %					apalike ignores the month
 FUNCTION {output.year.check}
 { year empty$
-    { "empty year in " cite$ * warning$ }
+    { "ano vazio em " cite$ * warning$ }
     { write$
       " (" year * extra.label * ")" *
       mid.sentence 'output.state :=
@@ -316,9 +316,9 @@ FUNCTION {format.bvolume}
     { "volume" volume tie.or.space.connect
       series empty$
 	'skip$
-	{ " of " * series emphasize * }
+	{ " de " * series emphasize * }
       if$
-      "volume and number" number either.or.check
+      "volume e número" number either.or.check
     }
   if$
 }
@@ -380,8 +380,8 @@ FUNCTION {format.pages}
 { pages empty$
     { "" }
     { pages multi.page.check
-	{ "pages" pages n.dashify tie.or.space.connect }
-	{ "page" pages tie.or.space.connect }
+	{ "páginas" pages n.dashify tie.or.space.connect }
+	{ "página" pages tie.or.space.connect }
       if$
     }
   if$
@@ -428,8 +428,8 @@ FUNCTION {format.in.ed.booktitle}
 { booktitle empty$
     { "" }
     { editor empty$
-	{ "In " booktitle emphasize * }
-	{ "In " format.editors * ", " * booktitle emphasize * }
+	{ "Em " booktitle emphasize * }
+	{ "Em " format.editors * ", " * booktitle emphasize * }
       if$
     }
   if$
@@ -565,14 +565,14 @@ FUNCTION {inbook}
   format.btitle "title" output.check
   crossref missing$
     { format.bvolume output
-      format.chapter.pages "chapter and pages" output.check
+      format.chapter.pages "capítulo e páginas" output.check
       new.block
       format.number.series output
       new.sentence
       publisher "publisher" output.check
       address output
     }
-    { format.chapter.pages "chapter and pages" output.check
+    { format.chapter.pages "capítulo e páginas" output.check
       new.block
       format.book.crossref output.nonnull
     }
@@ -597,7 +597,7 @@ FUNCTION {incollection}
       format.number.series output
       format.chapter.pages output
       new.sentence
-      publisher "publisher" output.check
+      publisher "editora" output.check
       address output
       format.edition output
     }
@@ -612,14 +612,14 @@ FUNCTION {incollection}
 
 FUNCTION {inproceedings}
 { output.bibitem
-  format.authors "author" output.check
+  format.authors "autor" output.check
   author format.key output				% special for
   output.year.check					% apalike
   new.block
-  format.title "title" output.check
+  format.title "título" output.check
   new.block
   crossref missing$
-    { format.in.ed.booktitle "booktitle" output.check
+    { format.in.ed.booktitle "título do livro" output.check
       format.bvolume output
       format.number.series output
       format.pages output
@@ -663,8 +663,8 @@ FUNCTION {mastersthesis}
   new.block
   format.title "title" output.check
   new.block
-  "Master's thesis" format.thesis.type output.nonnull
-  school "school" output.check
+  "Dissertação de Mestrado" format.thesis.type output.nonnull
+  school "Universidade" output.check
   address output
   new.block
   note output
