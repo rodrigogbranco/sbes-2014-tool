@@ -9,6 +9,32 @@
 
 \renewcommand{\refname}{Referências}
 
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+\widowpenalty=300
+\clubpenalty=300
+
      
 \sloppy
 
@@ -37,6 +63,7 @@
 \end{abstract}
      
 \begin{resumo}
+
 \end{resumo}
 
 \section{Introdução}
@@ -152,6 +179,42 @@ cima do modelo UML, conforme demonstrado na Figura \ref{fig:rightclick}.
 acessibilidade}
 \label{fig:rightclick}
 \end{figure}
+
+A Figura \ref{fig:matrixpart} mostra uma parte da matriz de rastreabilidade
+gerada automaticamente pela ferramenta \textit{AccTrace}. A matriz deve ser gerada utilizando o \textit{wizard}
+específico para esse fim, acessando na barra de tarefas as opções \textit{File},
+\textit{New} e em seguida \textit{Other\ldots}, selecionando a opção \textit{Traceability Matrix file
+wizard}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{./images/matrixpart.png}
+\caption{Parte da matriz de rastreabilidade gerada pela ferramenta
+\textit{AccTrace}}
+\label{fig:matrixpart}
+\end{figure}
+
+Para geração de código, o \textit{plugin UML to Java
+Generator} foi customizado para receber como entrada, além dos modelos UML, o arquivo RDF do \textit{AccTrace}. A medida que
+o código-fonte é gerado, é verificado se para o modelo UML usado como base existe um relacionamento de acessibilidade. Em caso positivo,
+um comentário personalizado é gerado, através da seguinte expressão regular \textit{Java}:
+
+\begin{lstlisting}
+String regex = "//!ACCTRACE!(/)?([^/\\\\0#]+(/)?)+#([^\\*\\*/])+";
+\end{lstlisting}
+
+A Figura \ref{fig:commentview} mostra um comentário já
+traduzido na \textit{View} específica para este fim, onde se pode observar informações como requisito, modelo UML e
+quais técnicas estão referenciadas por aquele comentário. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{./images/commentview.png}
+\caption{Explicitação do comentário selecionado}
+\label{fig:commentview}
+\end{figure}
+
+Uma prova de conceito pode ser encontrada em \cite{branco:13-1}.
 
 
 \section{Ferramentas e Trabalhos Relacionados}\label{sec:relacoes}
