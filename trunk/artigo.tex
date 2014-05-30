@@ -90,7 +90,7 @@ Este trabalho está organizado da seguinte forma: na Seção \ref{sec:caracteristic
 
 \section{Características da Ferramenta}\label{sec:caracteristicas}
 
-A principal funcionalidade da ferramenta \textit{AccTrace} é promover a rastreabilidade dos requisitos de acessibilidade, partindo da Engenharia de Requisitos até a fase de codificação do produto. Construída como uma ferramenta CASE que atua como um \textit{plugin} da IDE \textit{Eclipse}, esta ferramenta trabalha em conjunto com outros \textit{plugins} para atingir seu objetivo.
+A principal funcionalidade da ferramenta \textit{AccTrace} é promover a rastreabilidade dos requisitos de acessibilidade, partindo da engenharia de requisitos até a fase de codificação. Construída como uma ferramenta CASE que atua como um \textit{plugin} da IDE \textit{Eclipse}, esta ferramenta trabalha em conjunto com outros \textit{plugins} para atingir seu objetivo.
 
 \subsection{Fundamentação Teórica}
 
@@ -98,7 +98,7 @@ A \textit{AccTrace} utilizou o Processo de Desenvolvimento de \textit{Software} 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=.5\textwidth]{./images/figuramagica2.png}
+\includegraphics[width=.7\textwidth]{./images/figuramagica2.png}
 \caption{Detalhamento dos Subprocessos do MTA para prover a rastreabilidade dos requisitos de acessibilidade
 de acordo com a abordagem adotada neste trabalho}
 \label{fig:highlevel}
@@ -123,14 +123,9 @@ O Especialista em Acessibilidade cadastrará as informações relativas ao relacion
 
 \section{Arquitetura da Ferramenta}\label{sec:arquitetura}
 
-A \textit{AccTrace} trabalha em conjunto com as seguintes ferramentas:
+A \textit{AccTrace} trabalha em conjunto com as seguintes ferramentas: (a) \textit{Eclipse} como IDE;(b) \textit{Requirement Designer} \cite{reqdesigner:14} - \textit{Plugin} de Gerenciamento de Requisitos; (c) \textit{UML Designer} \cite{umldesigner:14} - \textit{Plugin} de modelagem UML
+  e (d) \textit{UML to Java Generator} \cite{umltojava:14} - \textit{Plugin} de geração de código
 
-\begin{itemize}
-  \item \textit{Eclipse} como IDE
-  \item \textit{Requirement Designer} \cite{reqdesigner:14} - \textit{Plugin} de Gerenciamento de Requisitos
-  \item \textit{UML Designer} \cite{umldesigner:14} - \textit{Plugin} de modelagem UML
-  \item \textit{UML to Java Generator} \cite{umltojava:14} - \textit{Plugin} de geração de código
-\end{itemize}
 
 Os três \textit{plugins} descritos anteriormente são distribuídos pela empresa \textit{Obeo} e foram escolhidos para trabalharem em conjunto com a \textit{AccTrace} por serem interoperáveis. Além disso, uma tecnologia essencial utilizada é uma Ontologia de Acessibilidade do Projeto \textit{Aegis} \cite{aegis:13}, que mapeia as diretrizes e técnicas de implementação de acessibilidade. A Figura \ref{fig:association} mostra o comportamento e o relacionamento das ferramentas, tecnologias e atores envolvidos no fluxo de trabalho da \textit{AccTrace}.
 
@@ -145,7 +140,7 @@ Não existe uma interface formal entre as ferramentas. Os artefatos gerados em fo
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=.5\textwidth]{./images/acctraceclassdiagram.png}
+\includegraphics[width=.4\textwidth]{./images/acctraceclassdiagram.png}
 \caption{Diagrama de classes da ferramenta (\textit{AccTrace})}
 \label{fig:acctraceclassdiagram}
 \end{figure}
@@ -263,17 +258,17 @@ comentário \textit{AccTrace} personalizado, que não estará presente em tais proj
 A ferramenta também exige o acompanhamento de um Especialista em Acessibilidade para que o registro das informações de acessibilidade seja feito no momento correto,
 profissional este que pode não estar disponível na equipe de desenvolvimento do produto.
 
-É possível identificar algumas atividades para trabalhos futuros:
-
-\begin{enumerate}
-  \item utilizar a \textit{AccTrace} em um projeto real como estudo de caso;
-  \item melhorar a usabilidade da ferramenta, melhorando as mensagens apresentadas e aproveitando o relacionamento da ontologia do projeto \textit{Aegis};
-  \item estender o escopo deste trabalho, incluíndo tarefas de testes e integração do \textit{software}
+É possível identificar algumas atividades para trabalhos futuros:(a) utilizar a \textit{AccTrace} em um projeto real como estudo de caso;
+  (b) melhorar a usabilidade da ferramenta, melhorando as mensagens apresentadas e aproveitando o relacionamento da ontologia do projeto \textit{Aegis};
+  (c) estender o escopo deste trabalho, incluíndo tarefas de testes e integração do \textit{software}
 e do sistema (Subtarefas 7, 8, 9 e 10 do MTA) e
-  \item estender a matriz de rastreabilidade dos requisitos construída para incluir os casos de testes descritos no item anterior.
-\end{enumerate}
+  (d) estender a matriz de rastreabilidade dos requisitos construída para incluir os casos de testes descritos no item anterior.
+
+\begin{footnotesize}
 
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
+
+\end{footnotesize}
 
 \end{document}
