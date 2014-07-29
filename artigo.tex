@@ -73,17 +73,35 @@ dos requisitos de acessibilidade e comentários no código-fonte, informações útei
 
 \section{Introdução}
 
-Fornecer \textit{softwares} acessíveis continua sendo um desafio nos dias atuais, com diversas pesquisas na área \cite{lazar:04,brajnik:06,zeng:05}. Dentre as dificuldades pertinentes ao problema, pode-se destacar a identificação dos requisitos de acessibilidade e sua posterior propagação e rastreabilidade até a fase de construção do produto. Enquanto existem propostas para integrar usabilidade e acessibilidade nos processos de Engenharia de \textit{Software}, muitos desenvolvedores não sabem como implementar tais produtos acessíveis \cite{1630123,alves:11}.
+Fornecer \textit{softwares} acessíveis continua sendo um desafio nos dias atuais, com diversas pesquisas 
+na área \cite{lazar:04,brajnik:06,zeng:05}. Dentre as dificuldades pertinentes ao problema, 
+pode-se destacar a identificação dos requisitos de acessibilidade e sua posterior propagação e 
+rastreabilidade até a fase de construção do produto. Enquanto existem propostas para integrar 
+usabilidade e acessibilidade nos processos de Engenharia de \textit{Software}, muitos desenvolvedores 
+não sabem como implementar tais produtos acessíveis \cite{1630123,alves:11}.
 
-A utilização de ferramentas CASE nos processos de Engenharia de \textit{Software} é muito comum, e em geral, aumenta a produtividade dos desenvolvedores, já que elas automatizam algumas tarefas diminuindo o esforço e o tempo de construção da solução. Na área de acessibilidade, é possível encontrar diversas ferramentas especializadas, como \textit{frameworks}, simuladores, validadores, entre outras. Contudo, os desenvolvedores constantemente apontam diversos problemas nessas ferramentas e geralmente estão insatisfeitos com o suporte fornecido pelas empresas que as desenvolvem e comercializam \cite{Trewin:2010:ACT:1805986.1806029}.
+A utilização de ferramentas CASE nos processos de Engenharia de \textit{Software} é muito comum, e 
+em geral, aumenta a produtividade dos desenvolvedores, já que elas automatizam algumas tarefas diminuindo 
+o esforço e o tempo de construção da solução. Na área de acessibilidade, é possível encontrar diversas 
+ferramentas especializadas, como \textit{frameworks}, simuladores, validadores,
+entre outras
+\cite{4756193,Fuertes:2011:DHW:1969289.1969294,Bigham:2010:ADE:1878803.1878812,5358165}.
+Contudo, os desenvolvedores constantemente apontam diversos problemas nessas ferramentas e geralmente estão insatisfeitos com o suporte fornecido pelas empresas que as desenvolvem e comercializam \cite{Trewin:2010:ACT:1805986.1806029}.
 
-A maioria das ferramentas existentes neste contexto é utilizada quando o produto está em fase de codificação. Por isso, seria interessante que os requisitos de rastreabilidade, assim que localizados, pudessem ser rastreados para identificar se estão sendo codificados corretamente. Há vários estudos relacionados a rastreabilidade de requisitos de forma genérica \cite{5970169,292398,5485417,6405269}, porém, poucos estudos estão relacionados aos requisitos de acessibilidade durante o processo de desenvolvimento de \textit{software} \cite{analuizadias:2010}.
+A maioria das ferramentas existentes neste contexto é utilizada quando o produto está em fase de codificação. 
+Por isso, seria interessante que os requisitos de rastreabilidade, assim que localizados, 
+pudessem ser rastreados para identificar se estão sendo codificados corretamente. Há vários 
+estudos relacionados à rastreabilidade de requisitos de forma genérica
+\cite{5970169,292398,5485417,6405269}, porém, poucos estudos estão relacionados aos requisitos de acessibilidade durante o processo de 
+desenvolvimento de \textit{software} \cite{analuizadias:2010}.
 
 Este trabalho apresenta a \textit{AccTrace}, uma ferramenta CASE desenvolvida como um \textit{plugin} do \textit{Eclipse} \cite{eclipse:14}, que permite acompanhar a evolução dos requisitos de acessibilidade até a fase de codificação, fornecendo informações relevantes ao desenvolvedor para a construção do produto acessível. A ferramenta foi construída utilizando o MTA \cite{maia:10}, um processo de desenvolvimento de \textit{software} baseado na ISO/IEC 12207 \cite{iso12207:98}, que inclui tarefas de acessibilidade.
 
 Usando esta nova abordagem provida pela \textit{AccTrace}, o relacionamento entre os requisitos de acessibilidade e os modelos UML (\textit{Unified Modeling Language} \cite{trove.nla.gov.au/work/7376771}), adicionados de informações importantes ao desenvolvedor, são transformados em comentários no código-fonte, recuperados em tempo real e apresentados ao desenvolvedor.
 
-A ferramenta tem caráter experimental e acadêmico e é distribuida sob a licença \textit{Eclipse Public License V1.0} e pode ser baixada em \url{https://github.com/rodrigogbranco/acctrace}.
+A ferramenta tem caráter experimental e acadêmico e é distribuída sob a licença 
+\textit{Eclipse Public License V1.0} e pode ser baixada em 
+\url{https://github.com/rodrigogbranco/acctrace}.
 
 Este trabalho está organizado da seguinte forma: na Seção \ref{sec:caracteristicas} são discutidas as características da ferramenta, principais funcionalidades e potenciais usuários. Na Seção \ref{sec:arquitetura} são discutidos os principais conceitos da arquitetura da ferramenta, componentes de \textit{software} e interfaces. Na Seção \ref{sec:relacoes} são descritos ferramentas e trabalhos relacionados. Por fim, na Seção \ref{sec:conclusoes} são discutidas as conclusões e trabalhos futuros.
 
@@ -135,7 +153,18 @@ Os três \textit{plugins} descritos anteriormente são distribuídos pela empresa \
 \label{fig:association}
 \end{figure}
 
-Não existe uma interface formal entre as ferramentas. Os artefatos gerados em formato RDF pelos \textit{plugins Requirement Designer} e \textit{UML Designer} são passados como entrada para a \textit{AccTrace}. A \textit{AccTrace} também usa um arquivo no formato RDF como forma de persistência, que é usado como entrada para o \textit{plugin UML to Java Generator}, que foi adaptado para atender aos propósitos deste trabalho. O diagrama de classes da \textit{AccTrace} pode ser visto na Figura \ref{fig:acctraceclassdiagram}.
+Não existe uma interface formal entre as ferramentas, e por esse motivo,
+não existe uma linguagem que descreva a arquitetura.
+Os artefatos gerados em formato RDF 
+pelos \textit{plugins Requirement Designer} e \textit{UML Designer} 
+são passados como entrada para a \textit{AccTrace}.
+Os elementos devem ser encarados como uma caixa-preta, que recebem as entradas e
+produzem as saídas.
+A \textit{AccTrace} também usa um arquivo no formato 
+RDF como forma de persistência, que é usado como entrada 
+para o \textit{plugin UML to Java Generator}, que foi adaptado 
+para atender aos propósitos deste trabalho. O diagrama de classes 
+da \textit{AccTrace} pode ser visto na Figura \ref{fig:acctraceclassdiagram}.
 
 \begin{figure}[ht]
 \centering
@@ -180,7 +209,18 @@ funcionamento da ferramenta.
 
 Uma vez selecionado o modelo UML e o requisito, é possível efetuar a associação da
 técnica de implementação de acessibilidade, clicando com o botão direito do mouse sobre o modelo UML, conforme ilustrado na Figura \ref{fig:rightclick}. As técnicas de implementação de acessibilidade estão mapeadas na Ontologia
-fornecida pelo Projeto \textit{Aegis} \cite{aegis:13}, que utiliza o documento de referência WCAG 2.0, disponibilizadas no formato OWL.
+fornecida pelo Projeto \textit{Aegis} \cite{aegis:13}, que utiliza o documento de referência WCAG 2.0, 
+disponibilizadas no formato OWL. Esta ontologia é o repositório das técnicas de
+implementação de acessibilidade e mapeiam o domínio. São ligadas aos requisitos
+e modelos UML, onde as informações são recuperadas principalmente na visão específica.
+
+
+Como os artefatos são descritos em formato RDF (requisitos, modelos UML e a
+ontologia), os vínculos são feitos a partir do elemento RDF:ID. Na prática, qualquer modelo UML que seja 
+descrito em formato RDF pode ser vinculado e rastreado através da matriz de
+rastreabilidade e das visões no Eclipse. Para os comentários no código fonte,
+contudo, apenas terão reflexos os modelos UML que são recebidos como entrada no \textit{plugin} de geração de
+código, como diagrama de classes, por exemplo.
 
 \begin{figure}[ht]
 \centering
@@ -191,9 +231,10 @@ acessibilidade}
 \end{figure}
 
 Depois que o relacionamento entre os requisitos, modelos UML e técnicas de implementação de acessibilidade estiver definido,
-é possível gerar a matriz de rastreabilidade de forma automática pela ferramenta \textit{AccTrace} no formato ODS (\textit{Open Document Sheet}). Parte dessa matriz
-pode ser vista na Figura \ref{fig:matrixpart}, que mostra o relacionamento entre Requisitos e Modelos UML. A matriz deve ser gerada utilizando o \textit{wizard}
-específico para esse fim, acessando na barra de tarefas as opções \textit{File},
+é possível gerar a matriz de rastreabilidade de forma automática pela ferramenta
+\textit{AccTrace} no formato ODS (\textit{Open Document Sheet}, equivalente à
+planilha do \textit{Microsoft Excel}).
+Parte dessa matriz pode ser vista na Figura \ref{fig:matrixpart}, que mostra o relacionamento entre Requisitos e Modelos UML. A matriz deve ser gerada utilizando o \textit{wizard} específico para esse fim, acessando na barra de tarefas as opções \textit{File},
 \textit{New} e em seguida \textit{Other\ldots}, selecionando a opção \textit{Traceability Matrix file
 wizard}.
 
@@ -215,8 +256,9 @@ String regex = "//!ACCTRACE!(/)?([^/\\\\0#]+(/)?)+#([^\\*\\*/])+";
 \end{lstlisting}
 
 A Figura \ref{fig:commentview} mostra um comentário baseado na expressão regular supracitada já
-traduzido na \textit{View} específica para este fim, onde se pode observar informações como requisito, modelo UML e
-quais técnicas estão referenciadas por aquele comentário. 
+traduzida na \textit{View} específica para este fim, onde se podem observar
+informações como o requisito, modelo UML e quais técnicas estão referenciados
+por aquele comentário.
 
 \begin{figure}[ht]
 \centering
@@ -240,28 +282,39 @@ para \textit{WebSphere} \cite{hovater:08}.
 O software \textit{Enterprise Architect} da empresa \textit{Sparx Systems}
 permite utilizar diagramas de requisitos,
 que são extensões dos diagramas tradicionais da UML, permitindo a
-rastreabilidade do modelo. Contudo, não foi encontrado na literatura trabalhos
-que tratem especificamente da rastreabilidade dos requisitos de acessibilidade dentro do processo de desenvolvimento de \textit{software}. Além disso, não foi 
+rastreabilidade do modelo. Contudo, não foram encontrados na literatura
+trabalhos que tratem especificamente da rastreabilidade dos requisitos de acessibilidade dentro do processo de desenvolvimento de \textit{software}. Além disso, não foi 
 encontrado como essas alternativas permitem, partindo do código fonte da solução, recuperar as informações de 
 rastreabilidade dos requisitos.
 
 \section{Conclusões}\label{sec:conclusoes}
 
 Este estudo mostrou ser possível especificar, antes das fases de codificação
-e vinculadas aos modelos e requisitos de acessibilidade, as técnicas de implementação que deverão ser visualizadas pelos programadores. A utilização de uma ontologia pré-definida do projeto \textit{Aegis} \cite{aegis:13} ajudou a alcançar tal objetivo, estendendo as técnicas de implementação anteriormente ditas para abordagens, diretrizes, critérios de sucesso, etc.
+e vinculadas aos modelos e requisitos de acessibilidade, as técnicas de implementação que deverão ser 
+visualizadas pelos programadores. A utilização de uma ontologia pré-definida do projeto \textit{Aegis} 
+\cite{aegis:13} ajudou a alcançar tal objetivo, estendendo as técnicas de implementação 
+anteriormente ditas para abordagens, diretrizes, critérios de sucesso, etc. É
+esperado que o produto final tenha melhor acessibilidade, já que as informações
+sobre a implementação da mesma estará disponível durante o processo de
+desenvolvimento de \textit{software}.
 
-Como limitação, nota-se que a ferramenta \textit{AccTrace} não recupera, a partir de códigos fontes arbitrários, as informações sobre a
-rastreabilidade dos requisitos, modelos UML e técnicas de implementação, já que em
+Como limitação, apenas requisitos de acessibilidade podem ser utilizados, pois o
+domínio, em forma de ontologia, está mapeado desta forma. Nota-se que a
+ferramenta \textit{AccTrace} não recupera, a partir de códigos fontes arbitrários, as informações sobre a rastreabilidade dos requisitos, modelos UML e técnicas de implementação, já que em
 nível de código, a informação necessária para a recuperação dos dados é o
 comentário \textit{AccTrace} personalizado, que não estará presente em tais projetos.
 A ferramenta também exige o acompanhamento de um Especialista em Acessibilidade para que o registro das informações de acessibilidade seja feito no momento correto,
 profissional este que pode não estar disponível na equipe de desenvolvimento do produto.
 
-É possível identificar algumas atividades para trabalhos futuros:(a) utilizar a \textit{AccTrace} em um projeto real como estudo de caso;
-  (b) melhorar a usabilidade da ferramenta, melhorando as mensagens apresentadas e aproveitando o relacionamento da ontologia do projeto \textit{Aegis};
-  (c) estender o escopo deste trabalho, incluíndo tarefas de testes e integração do \textit{software}
-e do sistema (Subtarefas 7, 8, 9 e 10 do MTA) e
-  (d) estender a matriz de rastreabilidade dos requisitos construída para incluir os casos de testes descritos no item anterior.
+É possível identificar algumas atividades para trabalhos futuros: (a) utilizar a
+\textit{AccTrace} em um projeto real como estudo de caso; (b) melhorar a usabilidade da ferramenta, melhorando as mensagens apresentadas e aproveitando o relacionamento da ontologia do projeto \textit{Aegis};
+  (c) estender o escopo deste trabalho, incluindo tarefas de testes e integração
+  do \textit{software} e do sistema (Subtarefas 7, 8, 9 e 10 do MTA);
+  (d) estender a matriz de rastreabilidade dos requisitos construída para
+  incluir os casos de testes descritos no item anterior e
+  (e) implementar consultas e visualizações dos artefatos rastreáveis,
+  recuperáveis através dos vínculos realizados pelos elementos RDF:ID dos
+  artefatos.
 
 \begin{footnotesize}
 
