@@ -5,7 +5,18 @@
 \usepackage{graphicx,url}
 
 \usepackage[brazil]{babel}   
-\usepackage[latin1]{inputenc}  
+\usepackage[latin1]{inputenc}
+
+\usepackage{lipsum}
+
+% ADD THE FOLLOWING COUPLE LINES INTO YOUR PREAMBLE
+\let\OLDthebibliography\thebibliography
+\renewcommand\thebibliography[1]{
+  \OLDthebibliography{#1}
+  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{0pt plus 0.3ex}
+}
+  
 
 \usepackage{listings}
 \usepackage{color}
@@ -85,17 +96,19 @@ em geral, aumenta a produtividade dos desenvolvedores, já que elas automatizam a
 o esforço e o tempo de construção da solução. Na área de acessibilidade, é possível encontrar diversas 
 ferramentas especializadas, como \textit{frameworks}, simuladores, validadores,
 entre outras
-\cite{4756193,Fuertes:2011:DHW:1969289.1969294,Bigham:2010:ADE:1878803.1878812,5358165}.
+\cite{Fuertes:2011:DHW:1969289.1969294,Bigham:2010:ADE:1878803.1878812,5358165,4756193}.
+
 Contudo, os desenvolvedores constantemente apontam diversos problemas nessas ferramentas e geralmente estão insatisfeitos com o suporte fornecido pelas empresas que as desenvolvem e comercializam \cite{Trewin:2010:ACT:1805986.1806029}.
 
 A maioria das ferramentas existentes neste contexto é utilizada quando o produto está em fase de codificação. 
 Por isso, seria interessante que os requisitos de rastreabilidade, assim que localizados, 
 pudessem ser rastreados para identificar se estão sendo codificados corretamente. Há vários 
 estudos relacionados à rastreabilidade de requisitos de forma genérica
-\cite{5970169,292398,5485417,6405269}, porém, poucos estudos estão relacionados aos requisitos de acessibilidade durante o processo de 
-desenvolvimento de \textit{software} \cite{analuizadias:2010}.
+\cite{5970169,292398,6405269}, porém, poucos estudos estão relacionados
+aos requisitos de acessibilidade durante o processo de desenvolvimento de \textit{software} \cite{analuizadias:2010}.
+%5485417,
 
-Este trabalho apresenta a \textit{AccTrace}, uma ferramenta CASE desenvolvida como um \textit{plugin} do \textit{Eclipse} \cite{eclipse:14}, que permite acompanhar a evolução dos requisitos de acessibilidade até a fase de codificação, fornecendo informações relevantes ao desenvolvedor para a construção do produto acessível. A ferramenta foi construída utilizando o MTA \cite{maia:10}, um processo de desenvolvimento de \textit{software} baseado na ISO/IEC 12207 \cite{iso12207:98}, que inclui tarefas de acessibilidade.
+Este trabalho apresenta a \textit{AccTrace}, uma ferramenta CASE desenvolvida como um \textit{plugin} do \textit{Eclipse}, que permite acompanhar a evolução dos requisitos de acessibilidade até a fase de codificação, fornecendo informações relevantes ao desenvolvedor para a construção do produto acessível. A ferramenta foi construída utilizando o MTA \cite{maia:10}, um processo de desenvolvimento de \textit{software} baseado na ISO/IEC 12207 \cite{iso12207:98}, que inclui tarefas de acessibilidade.
 
 Usando esta nova abordagem provida pela \textit{AccTrace}, o relacionamento
 entre os requisitos de acessibilidade e os modelos UML (\textit{Unified Modeling Language} \cite{trove.nla.gov.au/work/7376771}), adicionados de informações importantes ao desenvolvedor, são transformados em comentários no código-fonte, recuperados em tempo real e apresentados ao desenvolvedor. A ferramenta tem caráter experimental e acadêmico e é distribuída sob a licença \textit{Eclipse Public License V1.0} e pode ser baixada em 
@@ -113,9 +126,11 @@ A \textit{AccTrace} utilizou o Processo de Desenvolvimento de \textit{Software} 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=.7\textwidth]{./images/figuramagica2.png}
+\includegraphics[width=.7\textwidth]{./images/figuramagica3.png}
 \caption{Detalhamento dos Subprocessos do MTA \cite{maia:10} para prover a
-rastreabilidade dos requisitos de acessibilidade de acordo com a abordagem adotada neste trabalho}
+rastreabilidade dos requisitos de acessibilidade de acordo com a abordagem
+adotada neste trabalho. O artefato com nome em negrito refere-se ao artefato
+gerado pela \textit{AccTrace}}
 \label{fig:highlevel}
 \end{figure}
 
@@ -138,14 +153,17 @@ O Especialista em Acessibilidade cadastrará as informações relativas ao relacion
 
 \section{Arquitetura da Ferramenta}\label{sec:arquitetura}
 
-A \textit{AccTrace} trabalha em conjunto com as seguintes ferramentas: (a) \textit{Eclipse} como IDE;(b) \textit{Requirement Designer} \cite{reqdesigner:14} - \textit{Plugin} de Gerenciamento de Requisitos; (c) \textit{UML Designer} \cite{umldesigner:14} - \textit{Plugin} de modelagem UML
-  e (d) \textit{UML to Java Generator} \cite{umltojava:14} - \textit{Plugin} de geração de código
+A \textit{AccTrace} trabalha em conjunto com as seguintes ferramentas: 
+(a) \textit{Eclipse} como IDE; 
+(b) \textit{Requirement Designer} - \textit{Plugin} de Gerenciamento de Requisitos; 
+(c) \textit{UML Designer} - \textit{Plugin} de modelagem UML e 
+(d) \textit{UML to Java Generator} - \textit{Plugin} de geração de código
 
 
 Os três \textit{plugins} descritos anteriormente são distribuídos pela empresa \textit{Obeo} e foram escolhidos para trabalharem em conjunto 
-com a \textit{AccTrace} por serem interoperáveis. 
-Além disso, uma tecnologia essencial utilizada é uma 
-Ontologia de Acessibilidade do Projeto \textit{Aegis} \cite{aegis:13}, que
+com a \textit{AccTrace} por serem interoperáveis. Eles estão disponíveis em
+\url{http://marketplace.obeonetwork.com/}. Além disso, uma tecnologia essencial
+utilizada é uma Ontologia de Acessibilidade do Projeto \textit{Aegis} \cite{aegis:13}, que
 utiliza o documento de referência WCAG 2.0, disponibilizadas no formato OWL, e
 mapeia as diretrizes e técnicas de implementação de acessibilidade. A Figura \ref{fig:association} mostra o 
 comportamento e o relacionamento das ferramentas, tecnologias e atores envolvidos no fluxo de trabalho da \textit{AccTrace}.
@@ -172,7 +190,7 @@ da \textit{AccTrace} pode ser visto na Figura \ref{fig:acctraceclassdiagram}.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=.5\textwidth]{./images/acctraceclassdiagram.png}
+\includegraphics[width=.55\textwidth]{./images/acctraceclassdiagram.png}
 \caption{Diagrama de classes da ferramenta (\textit{AccTrace})}
 \label{fig:acctraceclassdiagram}
 \end{figure}
