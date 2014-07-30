@@ -97,10 +97,8 @@ desenvolvimento de \textit{software} \cite{analuizadias:2010}.
 
 Este trabalho apresenta a \textit{AccTrace}, uma ferramenta CASE desenvolvida como um \textit{plugin} do \textit{Eclipse} \cite{eclipse:14}, que permite acompanhar a evolução dos requisitos de acessibilidade até a fase de codificação, fornecendo informações relevantes ao desenvolvedor para a construção do produto acessível. A ferramenta foi construída utilizando o MTA \cite{maia:10}, um processo de desenvolvimento de \textit{software} baseado na ISO/IEC 12207 \cite{iso12207:98}, que inclui tarefas de acessibilidade.
 
-Usando esta nova abordagem provida pela \textit{AccTrace}, o relacionamento entre os requisitos de acessibilidade e os modelos UML (\textit{Unified Modeling Language} \cite{trove.nla.gov.au/work/7376771}), adicionados de informações importantes ao desenvolvedor, são transformados em comentários no código-fonte, recuperados em tempo real e apresentados ao desenvolvedor.
-
-A ferramenta tem caráter experimental e acadêmico e é distribuída sob a licença 
-\textit{Eclipse Public License V1.0} e pode ser baixada em 
+Usando esta nova abordagem provida pela \textit{AccTrace}, o relacionamento
+entre os requisitos de acessibilidade e os modelos UML (\textit{Unified Modeling Language} \cite{trove.nla.gov.au/work/7376771}), adicionados de informações importantes ao desenvolvedor, são transformados em comentários no código-fonte, recuperados em tempo real e apresentados ao desenvolvedor. A ferramenta tem caráter experimental e acadêmico e é distribuída sob a licença \textit{Eclipse Public License V1.0} e pode ser baixada em 
 \url{https://github.com/rodrigogbranco/acctrace}.
 
 Este trabalho está organizado da seguinte forma: na Seção \ref{sec:caracteristicas} são discutidas as características da ferramenta, principais funcionalidades e potenciais usuários. Na Seção \ref{sec:arquitetura} são discutidos os principais conceitos da arquitetura da ferramenta, componentes de \textit{software} e interfaces. Na Seção \ref{sec:relacoes} são descritos ferramentas e trabalhos relacionados. Por fim, na Seção \ref{sec:conclusoes} são discutidas as conclusões e trabalhos futuros.
@@ -121,18 +119,18 @@ rastreabilidade dos requisitos de acessibilidade de acordo com a abordagem adota
 \label{fig:highlevel}
 \end{figure}
 
-A ferramenta \textit{AccTrace}, assim como o MTA, prevê que no projeto exista um papel designado \textit{Especialista em Acessibilidade}, e a pessoa que assume este papel tem a responsabilidade de identificar os requisitos de acessibilidade e relacioná-los aos modelos e técnicas de implementação dos mesmos.
+A ferramenta \textit{AccTrace}, assim como o MTA, prevê que no projeto exista um
+papel designado Especialista em Acessibilidade. A pessoa que assume
+este papel tem a responsabilidade de identificar os requisitos de acessibilidade e relacioná-los aos modelos e técnicas de implementação dos mesmos.
 
 \subsection{Funcionalidades}
 
-De forma geral, a ferramenta \textit{AccTrace} permite que:
-
-\begin{itemize}
-  \item os relacionamentos entre os requisitos de acessibilidade, modelos UML e técnicas de implementação de acessibilidade sejam gerenciados;
-  \item a matriz de rastreabilidade dos relacionamentos descritos seja criada;
-  \item o código-fonte receba comentários personalizados indicando tais relacionamentos;
-  \item o desenvolvedor recupere informações sobre tais relacionamentos em tempo real.
-\end{itemize}
+De forma geral, a ferramenta \textit{AccTrace} permite que (a) os
+relacionamentos entre os requisitos de acessibilidade, modelos UML e técnicas de
+implementação de acessibilidade sejam gerenciados; (b) a matriz de
+rastreabilidade dos relacionamentos descritos seja criada; (c) o código-fonte
+receba comentários personalizados indicando tais relacionamentos e (d) o
+desenvolvedor recupere informações sobre tais relacionamentos em tempo real.
 
 \subsection{Potenciais Usuários}
 
@@ -144,11 +142,17 @@ A \textit{AccTrace} trabalha em conjunto com as seguintes ferramentas: (a) \text
   e (d) \textit{UML to Java Generator} \cite{umltojava:14} - \textit{Plugin} de geração de código
 
 
-Os três \textit{plugins} descritos anteriormente são distribuídos pela empresa \textit{Obeo} e foram escolhidos para trabalharem em conjunto com a \textit{AccTrace} por serem interoperáveis. Além disso, uma tecnologia essencial utilizada é uma Ontologia de Acessibilidade do Projeto \textit{Aegis} \cite{aegis:13}, que mapeia as diretrizes e técnicas de implementação de acessibilidade. A Figura \ref{fig:association} mostra o comportamento e o relacionamento das ferramentas, tecnologias e atores envolvidos no fluxo de trabalho da \textit{AccTrace}.
+Os três \textit{plugins} descritos anteriormente são distribuídos pela empresa \textit{Obeo} e foram escolhidos para trabalharem em conjunto 
+com a \textit{AccTrace} por serem interoperáveis. 
+Além disso, uma tecnologia essencial utilizada é uma 
+Ontologia de Acessibilidade do Projeto \textit{Aegis} \cite{aegis:13}, que
+utiliza o documento de referência WCAG 2.0, disponibilizadas no formato OWL, e
+mapeia as diretrizes e técnicas de implementação de acessibilidade. A Figura \ref{fig:association} mostra o 
+comportamento e o relacionamento das ferramentas, tecnologias e atores envolvidos no fluxo de trabalho da \textit{AccTrace}.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=.6\textwidth]{./images/developmentNew3.png}
+\includegraphics[width=.6\textwidth]{./images/developmentNew4.png}
 \caption{Associação das ferramentas e atores no contexto do trabalho}
 \label{fig:association}
 \end{figure}
@@ -157,9 +161,9 @@ Não existe uma interface formal entre as ferramentas, e por esse motivo,
 não existe uma linguagem que descreva a arquitetura.
 Os artefatos gerados em formato RDF 
 pelos \textit{plugins Requirement Designer} e \textit{UML Designer} 
-são passados como entrada para a \textit{AccTrace}.
-Os elementos devem ser encarados como uma caixa-preta, que recebem as entradas e
-produzem as saídas.
+são informados como entrada para a \textit{AccTrace}.
+As ferramentas devem ser encaradas como uma caixa-preta, que recebem as entradas
+e produzem as saídas.
 A \textit{AccTrace} também usa um arquivo no formato 
 RDF como forma de persistência, que é usado como entrada 
 para o \textit{plugin UML to Java Generator}, que foi adaptado 
@@ -173,9 +177,8 @@ da \textit{AccTrace} pode ser visto na Figura \ref{fig:acctraceclassdiagram}.
 \label{fig:acctraceclassdiagram}
 \end{figure}
 
-O diagrama de classes deve ser interpretado da seguinte forma: a classe
-principal é a \textit{AccTraceModel}, que armazena as referências para os
-repositórios dos requisitos (\textit{Repository}), e também objetos de
+A classe principal é a \textit{AccTraceModel}, que armazena as referências para
+os repositórios dos requisitos (\textit{Repository}), e também objetos de
 referência às associações dos requisitos, modelos e técnicas
 de implementação de acessibilidade (\textit{Reference}). Esse objeto referencia
 um requisito (\textit{Requirement}), um diagrama UML (\textit{EObject}) e
@@ -188,13 +191,13 @@ importantes para a associação à técnicas de implementação de acessibilidade, é p
 visualização dos requisitos na ferramenta.
 
 A ferramenta possui três visões principais, de acordo com a Figura
-\ref{fig:acctrace}. No editor (\textit{AccTrace Editor})  é possível alterar
+\ref{fig:acctrace}. No editor (\textit{AccTrace Editor} - 2)  é possível alterar
 os repositórios dos requisitos e gerar as associações entre os modelos
 UML, requisitos e técnicas de implementação. Na visão dos requisitos
-(\textit{Requirement Associations}) é possível visualizar quais requisitos
+(\textit{Requirement Associations} - 1) é possível visualizar quais requisitos
 associados ao modelo UML foram selecionados no editor. Na visão das técnicas já
-vinculadas (\textit{Accessibility Specifications View}) é possível visualizar as técnicas de implementação já associadas, de acordo com o
-modelo UML selecionado no editor e o requisito de acessibilidade
+vinculadas (\textit{Accessibility Specifications View} - 3) é possível
+visualizar as técnicas de implementação já associadas, de acordo com o modelo UML selecionado no editor e o requisito de acessibilidade
 selecionado na visão dos requisitos. Além disso, é possível remover as técnicas de
 implementação associadas. As três visões são importantes para o correto
 funcionamento da ferramenta.
@@ -209,10 +212,10 @@ funcionamento da ferramenta.
 
 Uma vez selecionado o modelo UML e o requisito, é possível efetuar a associação da
 técnica de implementação de acessibilidade, clicando com o botão direito do mouse sobre o modelo UML, conforme ilustrado na Figura \ref{fig:rightclick}. As técnicas de implementação de acessibilidade estão mapeadas na Ontologia
-fornecida pelo Projeto \textit{Aegis} \cite{aegis:13}, que utiliza o documento de referência WCAG 2.0, 
-disponibilizadas no formato OWL. Esta ontologia é o repositório das técnicas de
-implementação de acessibilidade e mapeiam o domínio. São ligadas aos requisitos
-e modelos UML, onde as informações são recuperadas principalmente na visão específica.
+fornecida pelo Projeto \textit{Aegis} \cite{aegis:13}. Esta ontologia é o
+repositório das técnicas de implementação de acessibilidade e mapeia o domínio.
+Essas técnicas são ligadas aos requisitos e modelos UML, e suas informações
+armazenadas no repositório são recuperadas na visão específica.
 
 
 Como os artefatos são descritos em formato RDF (requisitos, modelos UML e a
@@ -247,18 +250,18 @@ wizard}.
 \end{figure}
 
 Para a geração de código, o \textit{plugin UML to Java
-Generator} foi customizado para receber como entrada, além dos modelos UML, o arquivo RDF do \textit{AccTrace}. A medida que
-o código-fonte é gerado, é verificado se para o modelo UML usado como base existe um relacionamento de acessibilidade. Em caso positivo,
-um comentário personalizado é gerado, através da seguinte expressão regular \textit{Java}:
+Generator} foi customizado para receber como entrada, além dos modelos UML, o
+arquivo RDF da \textit{AccTrace}. A medida que o código-fonte é gerado, é
+verificado se existe um relacionamento de acessibilidade para o modelo UML usado
+como base. Em caso positivo, um comentário personalizado é gerado, através da seguinte expressão regular \textit{Java}:
 
 \begin{lstlisting}
 String regex = "//!ACCTRACE!(/)?([^/\\\\0#]+(/)?)+#([^\\*\\*/])+";
 \end{lstlisting}
 
 A Figura \ref{fig:commentview} mostra um comentário baseado na expressão regular supracitada já
-traduzida na \textit{View} específica para este fim, onde se podem observar
-informações como o requisito, modelo UML e quais técnicas estão referenciados
-por aquele comentário.
+traduzida na \textit{View} específica para este fim, em que é possível observar informações como o requisito, o modelo UML e quais técnicas 
+estão referenciados no comentário.
 
 \begin{figure}[ht]
 \centering
@@ -291,11 +294,11 @@ rastreabilidade dos requisitos.
 
 Este estudo mostrou ser possível especificar, antes das fases de codificação
 e vinculadas aos modelos e requisitos de acessibilidade, as técnicas de implementação que deverão ser 
-visualizadas pelos programadores. A utilização de uma ontologia pré-definida do projeto \textit{Aegis} 
+visualizadas pelos programadores. A utilização de a ontologia pré-definida do projeto \textit{Aegis} 
 \cite{aegis:13} ajudou a alcançar tal objetivo, estendendo as técnicas de implementação 
 anteriormente ditas para abordagens, diretrizes, critérios de sucesso, etc. É
 esperado que o produto final tenha melhor acessibilidade, já que as informações
-sobre a implementação da mesma estará disponível durante o processo de
+sobre a implementação da mesma estarão disponíveis durante o processo de
 desenvolvimento de \textit{software}.
 
 Como limitação, apenas requisitos de acessibilidade podem ser utilizados, pois o
